@@ -4,15 +4,18 @@ defmodule Cep do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Cep.hello()
-      :world
-
+  Fetch CEP from viacep website
   """
-  def hello do
-    :world
+
+  def fetch(cep) do
+    url = "https://viacep.com.br/ws/#{cep}/json/"
+
+    case HTTPoison.get(url) do
+      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+        Jason.decode(body)
+
+      {:ok, %HTTPoison.Response{status_code: 400, body: _body}} ->
+        {:error, "CEP not found"}
+    end
   end
 end
