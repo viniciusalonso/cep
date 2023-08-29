@@ -1,6 +1,6 @@
 # Cep
 
-**TODO: Add description**
+Basic library to fetch CEP from viacep website.
 
 ## Installation
 
@@ -19,3 +19,23 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/cep>.
 
+
+## Usage
+
+```
+Cep.fetch("01001000")
+
+{:ok,
+{
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}}
+```
