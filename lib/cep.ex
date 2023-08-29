@@ -5,6 +5,26 @@ defmodule Cep do
 
   @doc """
   Fetch CEP from viacep website
+
+  ## Examples
+
+    iex> Cep.fetch("01001000")
+      {:ok,
+      %{
+        "bairro" => "Sé",
+        "cep" => "01001-000",
+        "complemento" => "lado ímpar",
+        "ddd" => "11",
+        "gia" => "1004",
+        "ibge" => "3550308",
+        "localidade" => "São Paulo",
+        "logradouro" => "Praça da Sé",
+        "siafi" => "7107",
+        "uf" => "SP"
+      }}
+
+    iex> Cep.fetch("invalid")
+      {:error, "CEP not found"}
   """
 
   def fetch(cep) do
